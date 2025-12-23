@@ -118,9 +118,7 @@ begin
 end
 endfunction
 
-// ============================================================
-// QUARTER ROUND với Debug chi tiết
-// ============================================================
+// QUARTER ROUND 
 function [127:0] quarter_round;
     input [31:0] a, b, c, d;
     reg [31:0] a_out, b_out, c_out, d_out;
@@ -155,7 +153,7 @@ end
 endfunction
 
 // ============================================================
-// MAIN FSM với Debug đầy đủ
+// MAIN FSM 
 // ============================================================
 integer i;  // For loop variable
 
@@ -208,7 +206,6 @@ always @(posedge clk or negedge rst_n) begin
                         be_to_le_word(get_key_chunk(key, i[2:0])));
             end
             
-            // =========== SỬA TẠI ĐÂY ===========
             // Counter - KHÔNG áp dụng be_to_le_word vì counter đã là BE
             state = set_word(state, 12, counter);  // ĐÃ SỬA
             $display("Counter word12: BE=%h -> stored as %h (LE)", 
@@ -374,7 +371,6 @@ always @(posedge clk or negedge rst_n) begin
                         get_word(init_state, i+3));
             end
             
-            // =========== FIXED: Final addition and keystream serialization ===========
             // Final addition: state[i] + init_state[i] for i=0..15
             $display("\nPerforming final addition:");
             for(i = 0; i < 16; i = i + 1) begin
