@@ -1,0 +1,16 @@
+// =====================================================
+// Tang Mega 138K – ChaCha20 UART Test
+// Clock: 50 MHz
+// UART: 115200 baud
+// =====================================================
+
+IO_LOC "clk" P16;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF BANK_VCCIO=3.3;
+
+IO_LOC "rst_n" K16;
+IO_PORT "rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+
+IO_LOC "uart_tx" V16;
+IO_PORT "uart_tx" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+
+
